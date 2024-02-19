@@ -84,7 +84,7 @@ func main() {
 	
 	for _, uri := range conv.URIs {
 		// Extract date from res_head
-		resDate := extractDateFromResHead(uri.Resphead)
+		resDate := parse.extractDateFromResHead(uri.Resphead)
 		println(resDate) // Print the extracted date
 		
 		// Insert URI data into the database
