@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"go_tut/util"
 	"io/ioutil"
 	"log"
 
@@ -27,7 +28,7 @@ type Conversation struct {
 
 func main() {
 	// Read JSON data from file
-	jsonData, err := ioutil.ReadFile("./tutorial/data.json")
+	jsonData, err := ioutil.ReadFile("./data.json")
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return
@@ -82,9 +83,10 @@ func main() {
         log.Fatal("Error querying conversation ID:", err)
     }
 	
+
 	for _, uri := range conv.URIs {
 		// Extract date from res_head
-		resDate := parse.extractDateFromResHead(uri.Resphead)
+		resDate := util.ExtractDateFromResHead(uri.Resphead)
 		println(resDate) // Print the extracted date
 		
 		// Insert URI data into the database

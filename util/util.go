@@ -1,8 +1,8 @@
-package utils
+package util
 
 import "strings"
 
-func extractDateFromResHead(resHead string) string {
+func ExtractDateFromResHead(resHead string) string {
 	lines := strings.Split(resHead, "\n")
 
 	for _, line := range lines {
